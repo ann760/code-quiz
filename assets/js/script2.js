@@ -28,7 +28,7 @@ for (var i = 0; i < questions.length; i++) {
 
     var answer = (questions[i].a);
     if (answer == questions[i].a) {
-        score ++
+        score ++;
         alert ("correct");
     }
 }
@@ -36,4 +36,3 @@ alert("Your score is " + score)
 };
 
 //quiz()
-
