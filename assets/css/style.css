@@ -22,7 +22,6 @@ body {
 }
 
 header {
-  /*background: var(--secondary);*/
   padding: 20px 25px;
   display: flex;
   justify-content: space-between;
@@ -53,14 +52,11 @@ p, li {
 
 .quiz-wrapper {
   display: none;
-  flex: 1;
-  margin: 0 20px 20px;
 }
 
 .quiz-hide {
   display: none;
-  flex: 1;
-  margin: 0 20px 20px;
+
 }
 
 .quiz-unhide {

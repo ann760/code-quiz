@@ -14,11 +14,12 @@ function countdown() {
     } else {
       clearInterval(timeInterval);
     alert("End the quiz");
+    //endQuiz()
     }
   }, 1000)
   };
 
-function start(){
+function startQuiz(){
   startHideE1.className = "#quiz-hide";
   qQuizE1.className = "#quiz-show";
   countdown()
@@ -27,4 +28,4 @@ function start(){
 
 
 
-startBtn.onclick = start;
+startBtn.onclick = startQuiz;
