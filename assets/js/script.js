@@ -22,9 +22,8 @@ function countdown() {
 
 
 startBtn.addEventListener("click", function() {
-  startHideE1.className = "#quiz-hide";
-  qQuizE1.className = "#quiz-show";
+  startHideE1.className = "quiz-hide";
+  qQuizE1.className = "quiz-container";
   countdown()
-  quiz()
 
 });

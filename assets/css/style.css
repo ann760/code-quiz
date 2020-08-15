@@ -51,21 +51,17 @@ p, li {
 }
 
 .quiz-wrapper {
-  display: none;
-}
-
-.quiz-hide {
-  display: none;
-
-}
-
-.quiz-show {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   margin: 25px auto;
   width: 95%;
+}
+
+.quiz-hide {
+  display: none;
+
 }
 
 .btn {

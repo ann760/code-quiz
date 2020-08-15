@@ -1,14 +1,14 @@
-var displayQsE1 = document.querySelector("#quiz-question");
-var playerChoisesE1 = document.querySelector("player-choices");
+var displayQsE1 = document.querySelector("#quiz-questions");
+var playerChoisesE1 = document.querySelector("#player-choices");
 
 const questions = [
     {
         question: 'What is the HTML tag under which one can write the JavaScript code?',
         options: [
-          'a. <javascript>',
-          'b. <scripted>',
-          'c. <script>',
-          'd. <js>'
+          'a <javascript>',
+          'b <scripted>',
+          'c <script>',
+          'd <js>'
         ],
         correctAnswer: 'c'
     },
@@ -50,24 +50,52 @@ const questions = [
 
 var score = 0;
 
-//Loop
+
+
+
+var displayQuestion = function() {
+  var questionE1 = document.createElement("p");
+  questionE1.className = "p"; 
+  questionE1.textContent = Q1;
+  displayQsE1.appendChild(questionE1);
+};
+
+var displayOptions = function() {
+  var OptionsE1 = document.createElement("button");
+  OptionsE1.className = "btn"; 
+  OptionsE1.textContent = Opt;
+  playerChoisesE1.appendChild(OptionsE1);
+
+};
+
+  for (var i = 0; i < questions.length; i++) {
+    var Q1 = questions[i].question;
+    var Opt = questions[i].options;
+    /* for (var i = 0; i < questions.length; i++) {
+        
+        console.log(Opt);*/
+        displayQuestion();  
+        displayOptions()  
+    };
+    console.log(Q1);
+   
+  
+
+//Loop 
+/*
 function quiz(){
 
   for (var i = 0; i < questions.length; i++) {
-    var displayQs = document.createElement("h2");
-    displayQs.className = "quiz-show"; 
-    displayQs.textContent = (questions[i].question);
-    displayQs.innerHTML = (questions[i].question);
-    displayQs.appendChild(displayQsE1);
-    
+  
+
     var playerChoises = document.createElement("h2");
-    
-    playerChoises.textContent = (questions[i].options)
-    displayQs.innerHTML = (questions[i].options);
+  
+    //playerChoises.textContent = (questions[i].options)
+    //displayQs.innerHTML = (questions[i].options);
 
     console.log(questions[i].question);
     console.log(questions[i].options);
-    console.log(questions[i].correctAnswer);
+    console.log(questions[i].correctAnswer); 
 
     confirm(questions[i].question);
 
@@ -78,8 +106,8 @@ function quiz(){
       } else {
         alert ("wrong! the correct answer is " + questions[i].correctAnswer);
       }
-}
+//}
 alert("Your score is " + score)
 };
 
-
+*/
