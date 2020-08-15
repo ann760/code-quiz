@@ -1,7 +1,11 @@
 var displayQsE1 = document.querySelector("#quiz-question");
 var playerChoisesE1 = document.querySelector("#player-choices");
 var answerResultE1 = document.querySelector("#answer-result");
+var questionIdCounter = 0;
+var optionsIdCounter = 0;
 
+
+// creat question array
 const questions = [
     {
         question: 'What is the HTML tag under which one can write the JavaScript code?',
@@ -51,46 +55,63 @@ const questions = [
 
 var score = 0;
 
-
+// create quiz questions p 
 var displayQuestion = function() {
   var questionE1 = document.createElement("p");
   questionE1.className = "p"; 
+  questionE1.setAttribute("question-id", questionIdCounter);
   questionE1.textContent = Q1;
   displayQsE1.appendChild(questionE1);
+  questionIdCounter++
 };
-
+// create quiz options button
 var displayOptions = function() {
   var OptionsE1 = document.createElement("button");
   OptionsE1.className = "btn"; 
+  OptionsE1.setAttribute("options-id", optionsIdCounter);
   OptionsE1.textContent = Opt;
   playerChoisesE1.appendChild(OptionsE1);
-
+  optionsIdCounter++
 };
 
-for (var i = 0; i < questions.length; i++) {
-  var Opt = questions[i].options;
-  displayOptions() 
-  console.log(Opt);  
-
-}
-
+// loop through questions and options
 for (var i = 0; i < questions.length; i++) {
   var Q1 = questions[i].question;
   displayQuestion();  
-  console.log(Q1);     
+  console.log(Q1);    
+  
+  for (var i = 0; i < questions.length; i++) {
+    var Opt = questions[0].options[i];
+    displayOptions() 
+    console.log(Opt);
+  
+    // return result
+  }
+}
 
-};
-   
+  playerChoisesE1.addEventListener("click", function() {
+    var playerChoisesE1 = confirm(questions[i].question)
+    if (playerChoisesE1 === questions[i].correctAnswer) {
+      score ++;
+      msg = "Correct";
+    } else {
+      msg = "Wrong! The correct answer is " + questions[i].correctAnswer;
+  };
+    var resultE1 = document.createElement("p");
+    resultE1.className = "p"; 
+    resultE1.textContent = msg;
+    answerResultE1.appendChild(resultE1);
+  });
 
-/*
-    var answer = confirm(Opt);
-      if ((answer === questions[i].correctAnswer)) {
-          score ++;
-          alert ("correct");
-      } else {
-        alert ("wrong! the correct answer is " + questions[i].correctAnswer);
-      }
-//}
-alert("Your score is " + score)
-*/
+  var choiceHandler = function(event) {
+ 
+    var optionId = event.target;
+    console.log(optionId);
+    if (optionId.matches(".btn")){
+    var optionId = event.target.getAttribute("option-id");
+    console.log(optionId);
+    }
 
+  };
+
+ 
