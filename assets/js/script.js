@@ -20,14 +20,11 @@ function countdown() {
   }, 1000)
   };
 
-function startQuiz(){
+
+startBtn.addEventListener("click", function() {
   startHideE1.className = "#quiz-hide";
   qQuizE1.className = "#quiz-show";
   countdown()
   quiz()
-  
-};
 
-
-
-startBtn.onclick = startQuiz;
+});

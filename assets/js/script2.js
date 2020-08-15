@@ -3,45 +3,45 @@ var playerChoisesE1 = document.querySelector("player-choices");
 
 const questions = [
     {
-        qusetion: 'What is the HTML tag under which one can write the JavaScript code?',
-        options: {
-          a: '<javascript>',
-          b: '<scripted>',
-          c: '<script>',
-          d: '<js>'
-        },
+        question: 'What is the HTML tag under which one can write the JavaScript code?',
+        options: [
+          'a. <javascript>',
+          'b. <scripted>',
+          'c. <script>',
+          'd. <js>'
+        ],
         correctAnswer: 'c'
     },
 
     {
         question: 'Who invented javaScript?',
-        options: {
-          a: 'Douglas Crockford',
-          b: 'Sheryl Sandberg',
-          c: 'Brendan Eich'
-        },
+        options: [
+          'a. Douglas Crockford',
+          'b. Sheryl Sandberg',
+          'c. Brendan Eich'
+        ],
         correctAnswer: 'c'
     },
 
     {
         question: 'Which of the following is not a reserved word in JavaScript?',
-        options: {
-          a: 'interface',
-          b: 'throws',
-          c: 'program',
-          d: 'short' 
-        },
+        options: [
+          'a. interface',
+          'b. throws',
+          'c. program',
+          'd. short' 
+        ],
         correctAnswer: 'c'
     },
 
     {
         question: 'Which of the following is a server-side Java Script object?',
-        options: {
-          a: 'file', 
-          b: 'file upload',
-          c: 'function',
-          d: 'date'
-        },
+        options: [
+          'a. file', 
+          'b. file upload',
+          'c. function',
+          'd. date'
+        ],
         correctAnswer: 'd'
 
     }, 
@@ -54,18 +54,18 @@ var score = 0;
 function quiz(){
 
   for (var i = 0; i < questions.length; i++) {
-    var displayQs = document.createElement("quiz-question");
-    displayQs.className = "#quiz-show"; 
+    var displayQs = document.createElement("h2");
+    displayQs.className = "quiz-show"; 
     displayQs.textContent = (questions[i].question);
     displayQs.innerHTML = (questions[i].question);
     displayQs.appendChild(displayQsE1);
     
-    var playerChoises = document.createElement("player-choices");
+    var playerChoises = document.createElement("h2");
     
     playerChoises.textContent = (questions[i].options)
     displayQs.innerHTML = (questions[i].options);
 
-    console.log(questions[i].qusetion);
+    console.log(questions[i].question);
     console.log(questions[i].options);
     console.log(questions[i].correctAnswer);
 
