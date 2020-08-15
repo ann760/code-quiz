@@ -1,5 +1,6 @@
-var displayQsE1 = document.querySelector("#quiz-questions");
+var displayQsE1 = document.querySelector("#quiz-question");
 var playerChoisesE1 = document.querySelector("#player-choices");
+var answerResultE1 = document.querySelector("#answer-result");
 
 const questions = [
     {
@@ -51,8 +52,6 @@ const questions = [
 var score = 0;
 
 
-
-
 var displayQuestion = function() {
   var questionE1 = document.createElement("p");
   questionE1.className = "p"; 
@@ -68,38 +67,23 @@ var displayOptions = function() {
 
 };
 
-  for (var i = 0; i < questions.length; i++) {
-    var Q1 = questions[i].question;
-    var Opt = questions[i].options;
-    /* for (var i = 0; i < questions.length; i++) {
-        
-        console.log(Opt);*/
-        displayQuestion();  
-        displayOptions()  
-    };
-    console.log(Q1);
+for (var i = 0; i < questions.length; i++) {
+  var Opt = questions[i].options;
+  displayOptions() 
+  console.log(Opt);  
+
+}
+
+for (var i = 0; i < questions.length; i++) {
+  var Q1 = questions[i].question;
+  displayQuestion();  
+  console.log(Q1);     
+
+};
    
-  
 
-//Loop 
 /*
-function quiz(){
-
-  for (var i = 0; i < questions.length; i++) {
-  
-
-    var playerChoises = document.createElement("h2");
-  
-    //playerChoises.textContent = (questions[i].options)
-    //displayQs.innerHTML = (questions[i].options);
-
-    console.log(questions[i].question);
-    console.log(questions[i].options);
-    console.log(questions[i].correctAnswer); 
-
-    confirm(questions[i].question);
-
-    var answer = confirm(questions[i].options);
+    var answer = confirm(Opt);
       if ((answer === questions[i].correctAnswer)) {
           score ++;
           alert ("correct");
@@ -108,6 +92,5 @@ function quiz(){
       }
 //}
 alert("Your score is " + score)
-};
-
 */
+
