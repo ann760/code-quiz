@@ -43,4 +43,4 @@ var highscoreE1 = document.getElementById('hightscore')
       else {
         window.alert("Thank you for playing!");
       }
-    };
+    };*/

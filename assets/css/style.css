@@ -59,7 +59,7 @@ p, li {
 
 }
 
-.quiz-unhide {
+.quiz-show {
   flex: 1;
   display: flex;
   flex-wrap: wrap;
