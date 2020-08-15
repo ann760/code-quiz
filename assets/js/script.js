@@ -3,11 +3,16 @@ var startBtn = document.getElementById('start');
 var startHideE1 = document.getElementById('quiz-wrapper');
 var qQuizE1 = document.getElementById('quiz-questions');
 var displayQsE1 = document.querySelector("#quiz-question");
-var playerChoisesE1 = document.querySelector("#option-0");
+var playerChoisesE0 = document.querySelector("#option-0");
+var playerChoisesE1 = document.querySelector("#option-1");
+var playerChoisesE2 = document.querySelector("#option-2");
+var playerChoisesE3 = document.querySelector("#option-3");
+var questionIndex = 0;
+
 var answerResultE1 = document.querySelector("#answer-result");
 var questionIdCounter = 0;
 var optionsIdCounter = 0;
-var questionIndex = 0;
+
 var score = 0;
 
 // creat question array
@@ -81,34 +86,35 @@ var displayQuestion = function () {
 };
 // load quiz options into button
 var displayOptions = function () {
-  playerChoisesE1.textContent = questions[questionIndex].options;
+  playerChoisesE0.textContent = questions[questionIndex].options[0];
+  playerChoisesE1.textContent = questions[questionIndex].options[1];
+  playerChoisesE2.textContent = questions[questionIndex].options[2];
+  playerChoisesE3.textContent = questions[questionIndex].options[3];
 };
 
-playerChoisesE1.addEventListener("click", function () {
-  if (playerChoisesE1 === questions[questionIndex].correctAnswer) {
+playerChoisesE2.addEventListener("click", function () {
+  if (playerChoisesE2 === questions[questionIndex].correctAnswer) {
     score++;
     msg = "Correct";
+    alert(correct);
+    result(msg);
   } else {
     msg = "Wrong! The correct answer is " + questions[questionIndex].correctAnswer;
-  };
+    result(msg);
+  }
+  
+});
+    
+var result = function () {
   var resultE1 = document.createElement("p");
   resultE1.className = "p";
   resultE1.textContent = msg;
   answerResultE1.appendChild(resultE1);
+  questionIndex++
+  console.log(questionIndex);
+};
 
   //go to next question
-});
-
-var choiceHandler = function (event) {
-
-  var optionId = event.target;
-  console.log(optionId);
-  if (optionId.matches(".btn")) {
-    var optionId = event.target.getAttribute("option-id");
-    console.log(optionId);
-  }
-
-};
 
 
 startBtn.addEventListener("click", function() {
