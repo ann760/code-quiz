@@ -21,7 +21,7 @@
             <section class="quiz-Wrapper" id = "quiz-wrapper">
                 <h1>Coding Quiz Chalenge</h1>
                 <p>Click the button below to take the quiz!</p>
-                <button class="btn" id="start">Take the Qiuz</button>   
+                <button class="btn" id="start" type="submit">Take the Qiuz</button>   
             </section>
 
             <section class="quiz-hide" id="quiz-questions">
@@ -45,12 +45,19 @@
         </main>
 
         <section class= "quiz-hide" id="student-info">  
-            <form class="student-info" id="student-info">
+            <form class="student-form" id="student-form">
                 <div class="form-group">
-                    <p class="student-score" id="student-score"></p>
-                    <p>Enter your name to see high score</p>
-                    <input type="text" id="student-name" class="text-input" placeholder="Enter Your Name"/>
-                    <button class="btn" id=high-score>Enter</button>
+                    <p class="student-score" id="student-score">Enter your name to see high score</p>
+                    <input type="text" name="student-name" class="text-input" placeholder="Enter Your Name"/>
+                    <button class="btn" id="high-score" type="submit">Enter</button>
+                </div>
+            </form>
+        </section>
+        <section class= "quiz-hide" id="high-score-info">  
+            <form class="high-score-form" id="high-score-info">
+                <div class="high-score-group">
+                    <p class="high-score-score" id="high-score-score">something</p>
+                    <button class="btn" id="play-again" type="submit">Return to Main</button>  
                 </div>
             </form>
         </section>

@@ -2,6 +2,7 @@ var timerEl = document.getElementById('countdown');
 var startBtn = document.getElementById('start');
 var startHideE1 = document.getElementById('quiz-wrapper');
 var qQuizE1 = document.getElementById('quiz-questions');
+var highScoreInfo = document.getElementById("high-score-info");
 
 var displayQsE1 = document.querySelector("#question");
 var playerChoices = document.querySelector("#player-choices");
@@ -15,9 +16,12 @@ var answerResultE1 = document.querySelector("#answer-result");
 var questionIdCounter = 0;
 var optionsIdCounter = 0;
 
+var highScoreBtn = document.getElementById('high-score');
 var studentScore =  document.querySelector("#student-score");
 var studentInfo = document.querySelector("#student-info");
-var highScoreBtn = document.getElementById('high-score');
+//var studentScore =  document.querySelector("#student-score");
+
+
 
 var score = 0;
 
@@ -77,15 +81,22 @@ function countdown() {
     var timeInterval = setInterval(function(){
     
     timerEl.textContent=(timeLeft);
-    if (timeLeft > 0) {
-       timeLeft--;
-    } else {
+    if (questionIndex === questions.length) {
+      clearInterval(timeInterval);
+      if (timeLeft > 0) {
+        score + 5
+      }
+    } 
+     else if (timeLeft > 0) {
+        timeLeft--;
+     } 
+     else {
         clearInterval(timeInterval);
-        alert("Times up! The quiz is ended");
-        endQuiz()
-    }
-
-  }, 1000)
+        getInfo()
+      }
+      
+  }, 1000);
+  
 };
 
   // load quiz questions into p 
@@ -170,41 +181,58 @@ var checkTime = function() {
   
 };
 
-//go to next question
-answerResultE1.addEventListener("click", function () {
-  answerResultE1.className ="quiz-hide"
-  questionIndex++
-  console.log(questionIndex);
+var isEnd = function() {
   if (questionIndex === questions.length) {
-    endQuiz()
-
-  }
-  
+    getInfo()
+    
+  } 
   else {
-  displayQuestion()
-  displayOptions()
+    displayQuestion()
+    displayOptions()
   };
-});
-
-
-highScoreBtn.addEventListener("click", function () {
-  if (timerEl > 0){
-    score+5}
-    endQuiz()
-
-});
+};
 
 //go to next question
-var endQuiz = function () {
+  answerResultE1.addEventListener("click", function () {
+    answerResultE1.className ="quiz-hide"
+    questionIndex++
+    console.log(questionIndex);
+    isEnd()
+    checkTime()
+});
+  
+//go to next question
+var getInfo = function () {
   qQuizE1.className = "quiz-hide";
   studentInfo.className = "quiz-container";
   studentScore.textContent = "Your score is " + score
-  //highscoreE1()
+  //saveHighScore()
 };
+
+var saveHighScore = function() {
+
+ 
+}
+
+highScoreBtn.addEventListener("click", function () {
+  studentInfo.className = "quiz-hide";
+  highScoreInfo.className = "quiz-container";
+  event.preventDefault();
+
+  var name = document.querySelector("input[name ='student-name']").value;
+  localStorage.setItem("input[name ='student-name']", name);
+  localStorage.setItem("score", score);
+  
+  //check localStorage for high score, 
+  var name = document.querySelector("input[name ='student-name']").value;
+  console.dir(name);
+  var highScoreName = document.querySelector("#high-score-score");
+  highScoreName.textContent = name + " has the high score of " + score
+  
+});
 
 startBtn.addEventListener("click", function() {
   startHideE1.className = "quiz-hide";
-  studentInfo.class = "quiz-hide";
   qQuizE1.className = "quiz-questions";
   countdown()
   displayQuestion()
