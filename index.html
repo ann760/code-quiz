@@ -25,20 +25,35 @@
             </section>
 
             <section class="quiz-hide" id="quiz-questions">
-                <div class="quiz-question" id="quiz-question">
-                    <h1 class="question" id="question"></h1>  
+               <div class="quiz-question" id="quiz-question">
+                    <p class="question" id="question"></p>  
                 </div> 
-                       <section class = "playerChoices" id="player-choices">
-                            <button class="btn" id="option-0"></button>
-                            <button class="btn" id="option-1"></button>
-                            <button class="btn" id="option-2"></button>
-                            <button class="btn" id="option-3"></button>
-                       </section>
-                        <div class="answer-result" id="answer-result"></div>
 
-                    
+                <section class = "playerChoices" id="player-choices">
+                    <button class="btn" id="option-0"></button>
+                    <button class="btn" id="option-1"></button>
+                    <button class="btn" id="option-2"></button>
+                    <button class="btn" id="option-3"></button>
+                </section>
+                <section>
+                    <div>
+                        <div>
+                        <p class="answer-result" id="answer-result"></p>
+                        </div>
+                    </div>
             </section>
         </main>
+
+        <section class= "quiz-hide" id="student-info">  
+            <form class="student-info" id="student-info">
+                <div class="form-group">
+                    <p class="student-score" id="student-score"></p>
+                    <p>Enter your name to see high score</p>
+                    <input type="text" id="student-name" class="text-input" placeholder="Enter Your Name"/>
+                    <button class="btn" id=high-score>Enter</button>
+                </div>
+            </form>
+        </section>
 
         <script src="assets/js/script.js"></script>
         <script src="assets/js/script1.js"></script>

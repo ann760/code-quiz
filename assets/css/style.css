@@ -3,16 +3,13 @@
 }
 
 :root {
-  --primary: #d77dee;
-  --secondary: #734980;
-  --tertiary: rgb(192, 253, 240);
-  --grey: #333;
+
   font-size: 62.5%;
 }
 
 body {
   background: #ededed;
-  color: var(--grey);
+  color: #333;
   margin: 0;
   padding: 0;
   display: flex;
@@ -27,7 +24,7 @@ header {
   justify-content: space-between;
   flex-wrap: wrap;
   position: sticky;
-  border-bottom: 5px solid var(--primary);
+  border-bottom: 5px solid #734980;
 }
 
 header div p{
@@ -41,7 +38,7 @@ p {
   font-size: 1.2rem;
 }
 
-.quiz-container {
+.quiz-container{
   flex: 1;
   display: flex;
   flex-wrap: wrap;
@@ -50,15 +47,17 @@ p {
   width: 95%;
 }
 
-/*.quiz-wrapper, .quiz-questions .answer-result .playerChoices {
-  padding: 50px 35px;
+.quiz-questions {
   flex: 1;
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
-  justify-content: center;
+  text-align: left;
+  align-items: center;
+  justify-content: space-between;
   margin: 25px auto;
-  width: 55%;
-}*/
+  width: 95%;
+  padding: 50px 15px;
+}
 
 .quiz-hide {
   display: none;
@@ -70,20 +69,20 @@ p {
   border: none;
   display: inline-block;
   padding: 10px 15px;
-  background: var(--primary);
+  background: #dda0e9;
   font-size: 1.2rem;
   border-radius: 12px;
   position: relative;
   top: -3px;
-  box-shadow: 0 3px var(--grey);
+  box-shadow: 0 3px #734980;
 }
 
 .btn:hover {
-  box-shadow: 0 2px var(--grey);
+  box-shadow: 0 2px #734980;
   top: -2px;
 }
 .btn:active {
-  box-shadow: 0 0px var(--grey);
+  box-shadow: 0 0px #734980;
   top: 0;
 }
 
