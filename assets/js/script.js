@@ -19,9 +19,6 @@ var optionsIdCounter = 0;
 var highScoreBtn = document.getElementById('high-score');
 var studentScore =  document.querySelector("#student-score");
 var studentInfo = document.querySelector("#student-info");
-//var studentScore =  document.querySelector("#student-score");
-
-
 
 var score = 0;
 
@@ -208,11 +205,6 @@ var getInfo = function () {
   studentScore.textContent = "Your score is " + score
   //saveHighScore()
 };
-
-var saveHighScore = function() {
-
- 
-}
 
 highScoreBtn.addEventListener("click", function () {
   studentInfo.className = "quiz-hide";
