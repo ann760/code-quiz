@@ -3,10 +3,11 @@ var startBtn = document.getElementById('start');
 var startHideE1 = document.getElementById('quiz-wrapper');
 var qQuizE1 = document.getElementById('quiz-questions');
 var displayQsE1 = document.querySelector("#quiz-question");
-var playerChoisesE0 = document.querySelector("#option-0");
-var playerChoisesE1 = document.querySelector("#option-1");
-var playerChoisesE2 = document.querySelector("#option-2");
-var playerChoisesE3 = document.querySelector("#option-3");
+var playerChoices = document.querySelector("#player-choices");
+var playerChoicesE0 = document.querySelector("#option-0");
+var playerChoicesE1 = document.querySelector("#option-1");
+var playerChoicesE2 = document.querySelector("#option-2");
+var playerChoicesE3 = document.querySelector("#option-3");
 var questionIndex = 0;
 
 var answerResultE1 = document.querySelector("#answer-result");
@@ -20,12 +21,12 @@ const questions = [
   {
     question: 'What is the HTML tag under which one can write the JavaScript code?',
     options: [
-      'a <javascript>',
-      'b <scripted>',
-      'c <script>',
-      'd <js>'
+      'a. <javascript>',
+      'b. <scripted>',
+      'c. <script>',
+      'd. <js>'
     ],
-    correctAnswer: 'c'
+    correctAnswer: 'c. <script>'
   },
 
   {
@@ -33,9 +34,10 @@ const questions = [
     options: [
       'a. Douglas Crockford',
       'b. Sheryl Sandberg',
-      'c. Brendan Eich'
+      'c. Brendan Eich',
+      'd. Zed A. Shaw'
     ],
-    correctAnswer: 'c'
+    correctAnswer: 'c. Brendan Eich'
   },
 
   {
@@ -46,7 +48,7 @@ const questions = [
       'c. program',
       'd. short'
     ],
-    correctAnswer: 'c'
+    correctAnswer: 'c. program'
   },
 
   {
@@ -57,7 +59,7 @@ const questions = [
       'c. function',
       'd. date'
     ],
-    correctAnswer: 'd'
+    correctAnswer: 'd. date'
 
   },
 
@@ -75,47 +77,106 @@ function countdown() {
     } else {
       clearInterval(timeInterval);
     alert("End the quiz");
-    //endQuiz()
+    endQuiz()
     }
   }, 1000)
   };
 
-// load quiz questions into p 
-var displayQuestion = function () {
-  displayQsE1.textContent = questions[questionIndex].question;
-};
-// load quiz options into button
-var displayOptions = function () {
-  playerChoisesE0.textContent = questions[questionIndex].options[0];
-  playerChoisesE1.textContent = questions[questionIndex].options[1];
-  playerChoisesE2.textContent = questions[questionIndex].options[2];
-  playerChoisesE3.textContent = questions[questionIndex].options[3];
-};
+  // load quiz questions into p 
+  var displayQuestion = function () {
+    displayQsE1.textContent = questions[questionIndex].question;
 
-playerChoisesE2.addEventListener("click", function () {
-  if (playerChoisesE2 === questions[questionIndex].correctAnswer) {
-    score++;
-    msg = "Correct";
-    alert(correct);
-    result(msg);
-  } else {
-    msg = "Wrong! The correct answer is " + questions[questionIndex].correctAnswer;
-    result(msg);
+  };
+
+  // load quiz options into button
+  var displayOptions = function () {
+    playerChoicesE0.textContent = questions[questionIndex].options[0];
+    playerChoicesE0.setAttribute("value", questions[questionIndex].options[0]);
+    playerChoicesE1.textContent = questions[questionIndex].options[1];
+    playerChoicesE1.setAttribute("value", questions[questionIndex].options[1]);
+    playerChoicesE2.textContent = questions[questionIndex].options[2];
+    playerChoicesE2.setAttribute("value", questions[questionIndex].options[2]);
+    playerChoicesE3.textContent = questions[questionIndex].options[3];
+    playerChoicesE3.setAttribute("value", questions[questionIndex].options[3]);
+  };
+
+  playerChoicesE0.addEventListener("click", function () {
+    if (playerChoicesE0.value === questions[questionIndex].correctAnswer) {
+      score++;
+      msg = "Correct!"
+      result(msg);
   }
+    else {
+      msg = "Wrong! The correct answer is " + questions[questionIndex].correctAnswer;
+      result(msg);
+    }
+
+  });
+
+  playerChoicesE1.addEventListener("click", function () {
+    if (playerChoicesE1.value === questions[questionIndex].correctAnswer) {
+      score++;
+      msg = "Correct!"
+      result(msg);
+    }
+    else {
+      msg = "Wrong! The correct answer is " + questions[questionIndex].correctAnswer;
+      result(msg);
+    }
   
-});
+  }); 
+
+  playerChoicesE2.addEventListener("click", function () {
+    if (playerChoicesE2.value === questions[questionIndex].correctAnswer) {
+      score++;
+      msg = "Correct!"
+      result(msg);
+    }
+    else {
+      msg = "Wrong! The correct answer is " + questions[questionIndex].correctAnswer;
+      result(msg);
+    }
     
-var result = function () {
-  var resultE1 = document.createElement("p");
-  resultE1.className = "p";
-  resultE1.textContent = msg;
-  answerResultE1.appendChild(resultE1);
+  }); 
+
+  playerChoicesE3.addEventListener("click", function () {
+    if (playerChoicesE3.value === questions[questionIndex].correctAnswer) {
+      score++;
+      msg = "Correct!"
+      result(msg);
+    }
+    else {
+      msg = "Wrong! The correct answer is " + questions[questionIndex].correctAnswer;
+      result(msg);
+    }
+    
+  }); 
+
+  var result = function () {
+    answerResultE1.textContent = msg;
+    answerResultE1.className ="answer-result"
+  };
+
+//go to next question
+answerResultE1.addEventListener("click", function () {
+  answerResultE1.className ="quiz-hide"
   questionIndex++
   console.log(questionIndex);
+
+  if (questionIndex === questions.length){
+  endQuiz()
+  } 
+  else {
+  displayQuestion()
+  displayOptions()
+  }
+});
+
+//go to next question
+var endQuiz = function () {
+  qQuizE1.className = "quiz-hide";
+
 };
-
-  //go to next question
-
 
 startBtn.addEventListener("click", function() {
   startHideE1.className = "quiz-hide";
@@ -123,5 +184,5 @@ startBtn.addEventListener("click", function() {
   countdown()
   displayQuestion()
   displayOptions()
-
 });
+
